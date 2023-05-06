@@ -160,10 +160,22 @@ for(var i=1; i < weatherCondition.length; i++) {
     title.textContent = weatherCondition[i].dateT;
     imageForecast.setAttribute("src", weatherCondition[i].icon);
     var pEl1 = document.createElement("p");
-    var pEl2 = document.createElement("p");
+    var pEl2 = document.createElement("p"); 
+    pEl1.classList.add("small");
+    pEl1.textContent = "Temperature: " + weatherCondition[i].temp + " °F";
+    pEl2.classList.add("small");
+    pEl2.textContent = "Humidity: " + weatherCondition[i].humidity + "%";
+    ctn5.appendChild(title);
+    ctn5.appendChild(imageForecast);
+    ctn5.appendChild(pEl1);
+    ctn5.appendChild(pEl2);
+    ctn4.appendChild(ctn5);
+    ctn8.appendChild(ctn4);
+}
 
-}
-}
+containerForecast.appendChild(ctn8);
+
+};
 
 //Function to start everything - commented out for now
 // start();
