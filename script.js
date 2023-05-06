@@ -177,6 +177,27 @@ containerForecast.appendChild(ctn8);
 
 };
 
+//Store city in LS
+var saveCity = function(city) {
+    var flag = false
+    if (dataStore){
+        for(var i = 0; i < dataStore.length; i++){
+            if(dataStore[i] === city){
+                flag = true;
+            }
+        }
+        if(flag) {
+            displayAlertMessage ("The City: " + city +" already exsists")
+        //Return
+        }
+    }
+    if(!flag) {
+        dataStore.push(city);
+        localStorage.setItem("cities", JSON.stringify(dataStore));
+    }
+    loadCity();
+}
+
 //Function to start everything - commented out for now
 // start();
 
