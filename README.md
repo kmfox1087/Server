@@ -15,7 +15,7 @@
 
 ## Description
 
-[Description of project will go here.]
+For the 6h Bootcamp challenge we were tasked with creating a Weather App. The user should be able to google a certain city and all of the weather details of that city such as Tempature, UV index, Wind Speed, and Humidity. They should be able to see the weather conditions for 5 days and be able to plan their trip accordingly to it!
 
 ## User Story
 
@@ -39,7 +39,7 @@
 
 ## Setup/Installation Requirements
 
-* Go to [url to my repo here] and copy SSH Key
+* Go to https://github.com/kmfox1087/SERVER-SIDE-APIS-CHALLENGE-6 and copy SSH Key
 * Use _git clone_ in your terminal and copy and paste the SSH code to your local computer
 * Use _git status_ to make sure you are in the repo, if not use _cd Bootcamp-Challenge-3_ in your terminal to change into your local repo
 * After clone is complete, type _code ._ into your terminal to edit files as needed
