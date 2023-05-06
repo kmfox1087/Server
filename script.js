@@ -141,7 +141,27 @@ ctn8.classList.add("d-flex");
 
 //For loop to get the info about the weather stored in the array weatherCond
 for(var i=1; i < weatherCondition.length; i++) {
-    
+
+    var ctn4 = document.createElement("div");
+    //All classes are from bootstrap
+    ctn1.classList.add("card");
+    ctn1.classList.add("bg-primary");
+    ctn1.classList.add("text-white");
+    ctn1.classList.add("rounded");
+    ctn1.classList.add("mr-2");
+    ctn1.classList.add("flex-fill");
+
+    //For body card
+    var ctn5 = document.createElement("div");
+    ctn5.classList.add("card-body");
+    var title = document.createElement("h6");
+    title.classList.add("card-title");
+    var imageForecast = document.createElement("img");
+    title.textContent = weatherCondition[i].dateT;
+    imageForecast.setAttribute("src", weatherCondition[i].icon);
+    var pEl1 = document.createElement("p");
+    var pEl2 = document.createElement("p");
+
 }
 }
 
