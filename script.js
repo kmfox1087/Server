@@ -55,9 +55,14 @@ var cleaningElement = function(element) {
 // ~~~~Weather section~~~~
 
 //Converting °F to °C
-var converTemp = function(temp) {
+var convertTemp = function(temp) {
     return (Math.floor((parseFloat(temp) -32) * (5/9))).toString();
 }
+
+//Converting Wind Speed from MPH to KHP
+var convertSpeed = function(speed) {
+    return (Math.floor(parseFloat(speed) * 1.609)).toString();
+};
 
 //Function to start everything - commented out for now
 // start();
