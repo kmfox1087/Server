@@ -21,7 +21,7 @@ function start() {
 var loadCity = function() {
 
     cleaningElement(containerHistoricCities);
-
+console.log("This is working!");
     if(dataStore){
         var ulElement = document.createElement("ul");
         ulElement.classList.add("list-unstyled");
@@ -63,6 +63,43 @@ var convertTemp = function(temp) {
 var convertSpeed = function(speed) {
     return (Math.floor(parseFloat(speed) * 1.609)).toString();
 };
+
+//This determines the intensity of UV index
+//Go to https://www.epa.gov/sites/production/files/documents/uviguide.pdf for classifications
+//
+var findUV = function(uv) {
+
+    var indexUV = parseFloat(uv);
+    var bgColor;
+
+    if(indexUV < 3){
+        bgColor = "bg-success";
+    }
+        else if( indexUV < 6) {
+        bgColor = "bg-danger";
+    }
+        else if (indexUV < 8) {
+            bgColor = "bg-danger";
+        }
+         else {
+        bgColor = "bg-dark";
+    }
+    return bgColor;
+};
+
+//Showing info about weather
+
+var weatherHTML = function (city, uv) {
+    //Cleaning containers
+    cleaningElement(containerCurrent);
+    cleaningElement(containerForecast);
+
+//Current city
+var ctn1 = document.createElement("div");
+ctn1.classList.add("col-6");
+var ctn2 = document.createElement("div");
+ctn2.classList.add("col-6");
+}
 
 //Function to start everything - commented out for now
 // start();
