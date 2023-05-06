@@ -256,9 +256,62 @@ var callApiFetch = function(city) {
     .then(function(weatherRepsonse) {
         if(weatherRepsonse.cod != "200") {
             displayAlertMessage("Unable to find " + city +" in OpenWeathermap.org");
+        
+            return;
+        } else {
+            //Send the list array for the data about the forecast & obj
+            createDataObject(weatherRepsonse.list, weatherRepsonse.city.cord);
         }
+        var url1; 
+        if (location.protocol === "http:") {
+            url1 = 'http://api.openweathermap.org/data/2.5/uvi?appid=b262298fbe39ad30d243f31f6e1297bc&lat='+weatherCondition[0].lat+'&lon='+weatherCondition[0].lon;
+        } else {
+            url1 = 'https://api.openweathermap.org/data/2.5/uvi?appid=b262298fbe39ad30d243f31f6e1297bc&lat='+weatherCondition[0].lat+'&lon='+weatherCondition[0].lon;
+        }
+        fetch(url)
+
+        .then(function (uvResponse) {
+            return uvResponse.json();
+        })
+        .then(function(uvResponse){
+            if(!uvResponse) {
+                displayAlertMessage("OpenWeathermap.org could not find anything for latitude and longitude!")
+                
+                return;
+            } else {
+                //Store city in ls
+
+                saveCity(city);
+
+                //Generate the HTML for weather
+                weatherHTML(city, uvResponse.value);
+            }
+        })
     })
-}
+    .catch(function(error) {
+        //If there is a problem in connecting to the url
+        displayAlertMessage("Unable to connect to OpenWeathermap.org!");
+        return;
+    });
+};
+
+//Function listener on click button
+var search = function(event) {
+    event.preventDefault();
+
+    //Getting the value of input
+    var inputElement = document.querySelector("#searchCity");
+    var textInput = inputElement.value.trim();
+
+    if(inputElement.value === ""){
+        alert("Weather Dashboard says: You must enter a city!");
+        return;
+    }
+    //If the value is a string
+    else {
+        callApiFetch(textInput);
+    }
+};
 
 //Function to start everything - commented out for now
 // start();
