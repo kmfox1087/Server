@@ -1,5 +1,5 @@
 // Global variables
-var apiKey = eedf2a8246eeeb25f8bfcceff39ff8c5;
+// var apiKey = eedf2a8246eeeb25f8bfcceff39ff8c5;
 var btn = document.querySelector("#btn-search");
 var containerHistoricCities = document.querySelector("#historic-Cities");
 var containerCurrent = document.querySelector("#targetCity");
@@ -28,13 +28,17 @@ console.log("This is working!");
         ulElement.classList.add("w-100");
 
         //For loop to iterate throughout the LS
-        for(var i = 0; i <dataStore.length; 1++){
+        for(var i = 0; i < dataStore.length; i++){
+                
             var liElement = document.createElement("li");
-            //Item must be appended into container
+            // append a button with bootstraps classes inside each item
+            liElement.innerHTML = "<button type='button' class='list-group-item list-group-item-action' attr='"+dataStore[i]+"'>" + dataStore[i] + "</button>";
+            // append the item into its container
             ulElement.appendChild(liElement);
+            }
+
+            containerHistoricCities.appendChild(ulElement); 
         }
-        containerHistoricCities.appendChild(ulElement);
-    }
 };
 
 // 
