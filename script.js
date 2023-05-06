@@ -36,3 +36,32 @@ var loadCity = function() {
         containerHistoricCities.appendChild(ulElement);
     }
 };
+
+// 
+$(document).on("cick", ".list-group-item", function(event) {
+
+event.preventDefault();
+
+//Getting attribute that contains the name of the city
+var city = $(this).attr("attr");
+callApiFetch(city);
+
+//Functin to clear everything inside container
+var cleaningElement = function(element) {
+    element.innerHTML = "";
+}
+});
+
+// ~~~~Weather section~~~~
+
+//Converting °F to °C
+var converTemp = function(temp) {
+    return (Math.floor((parseFloat(temp) -32) * (5/9))).toString();
+}
+
+//Function to start everything - commented out for now
+// start();
+
+//Event listener for search button
+
+btn.addEventListener("click", search);
