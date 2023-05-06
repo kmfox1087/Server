@@ -8,12 +8,42 @@
   </head>
 
   <body>
-    <header>
-      <h2>Weather</h2>
-     
-      </nav>
-    </header>
     
+    <!-- Header Section -->
+    
+    <div class="justify-content-center">
+<div class="row">
+  <div class="col-12 col-sm col=-md-12">
+    <h1 class="display-4 text-center w-100">Weather Dashboard</h1>
+  </div>
+</div>
+
+    </div>
+
+<!-- Main Section -->
+
+<div class="container-fluid">
+  <!--Row 1-->
+<div class="row">
+  <div class =col-3>
+    <div class="headerSearch row mx-3">
+      <h3>Search for a city:</h3>
+    </div>
+    <div class="formInput row ml-3">
+      <input class="border" type="text" id="searchCity"/>
+      <button type="button" class="btn btn-primary btn-md border-0" id="btn-search">
+        <!--Empty space for span later-->
+      </button>
+    </div>
+    <div class="list-group row m-3" id="historic-Cities"></div>
+  </div>
+  <div class="col-9">
+    <div class="row border m-3" id="targetCity"></div>
+    <div class="row m-3" id="infoCity"></div>
+  </div>
+</div>
+</div>
+<!--jQuery and JS scripts down below here-->
   </body>
 
 </html>
