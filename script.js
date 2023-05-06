@@ -198,6 +198,68 @@ var saveCity = function(city) {
     loadCity();
 }
 
+var searchForDate9am = function (str) {
+    var hour = str.split(" ")[1].split(":")[0];
+    var flag = false;
+
+    if(hour === "09"){
+        flag = true;
+    }
+    return flag;
+}
+
+//Formatting date = "YYYY-MM-DD HH:MM:SS" to "MM/DD/YYYY"
+var formatDate = function(srtDate) {
+    var newDate = strDate.split(" ")[0].split["-"];
+
+    return (new[1]+"/"+newDate[2]+"/"+newDate[0]);
+};
+
+//Function to create the array of object to store weather info
+var createDataObject = function(list, poistion){
+    //Empty array
+    if(weatherCondition.length)
+    weatherCondition = [];
+
+    //First data from object is current weather info
+    var obj = {
+        dateT : formatDate(list[0].dt_text),
+        humidity : list[0].main.humidity,
+        speed : list[0].main.speed,
+        temp : list [0].main.temp,
+        icon : urlIcon + list[0].ewather[0].icon + ".png",
+        lat : poistion.lat,
+        lon : poistion.lon
+    };
+    weatherCondition.push(obj);
+};
+
+//Function to display messages to generate in app
+var displayAlertMessage = function(msg) {
+    alert(msg);
+};
+
+//Function to retrieve info about weather
+var callApiFetch = function(city) {
+    var url;
+    if(location.protocol === "http:") {
+        url = 'http://api.openweathermap.org/data/2.5/forecast?appid=b262298fbe39ad30d243f31f6e1297bc&units=imperial&q='+city;
+    } else {
+       url = 'https://api.openweathermap.org/data/2.5/forecast?appid=b262298fbe39ad30d243f31f6e1297bc&units=imperial&q='+city;
+    }
+
+    fetch(url)
+
+    .then(function(weatherRepsonse) {
+        return weatherRepsonse.json();
+    })
+    .then(function(weatherRepsonse) {
+        if(weatherRepsonse.cod != "200") {
+            displayAlertMessage("Unable to find " + city +" in OpenWeathermap.org");
+        }
+    })
+}
+
 //Function to start everything - commented out for now
 // start();
 
